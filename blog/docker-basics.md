@@ -3,7 +3,7 @@ title: "Docker-Basics"
 layout: page
 date: 2025-04-04
 categories: [docker]
-permalink: /blog/docker-basics/
+permalink: /blog/docker/
 ---
 
 # Docker Basics

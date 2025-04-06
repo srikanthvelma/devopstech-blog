@@ -3,7 +3,7 @@ title: "Linux-Basics"
 layout: page
 date: 2025-04-04
 categories: [linux]
-permalink: /blog/linux-basics/
+permalink: /blog/linux/
 ---
 
 

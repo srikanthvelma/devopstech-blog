@@ -3,7 +3,7 @@ title: "Kubernetes-Basics"
 layout: page
 date: 2025-04-04
 categories: [k8s]
-permalink: /blog/k8s-basics/
+permalink: /blog/k8s/
 ---
 
 

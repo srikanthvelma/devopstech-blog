@@ -7,8 +7,11 @@ title: Home
 ---
 
 # Welcome to Devops Tech Blog 
+![Srikanth Velma](/assets/images/sri.jpg){:style="max-width: 150px; border-radius: 50%; margin-top: 1rem;"}
+
 
 Explore categories:
-- [Linux](/blog/linux/)
-- [Docker](/blog/docker/)
-- [Kubernetes](/blog/k8s/)
+
+- 📂 [Linux](/blog/linux-basics/)
+- 🐳 [Docker](/blog/docker/)
+- ☸️ [Kubernetes](/blog/k8s/)
