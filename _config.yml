@@ -47,17 +47,13 @@ collections:
     output: true
     permalink: /blog/:name/
 
-nav:
-  - title: "Home"
-    url: "/"
-  - title: "About"
-    url: "/about/"
-  - title: "Linux-Basics"
-    url: "/linux-basics/"
-  - title: "Docker-Basics"
-    url: "/docker-basics/"
-  - title: "K8s-Basics"
-    url: "/k8s-basics/"
+nav_categories:
+  - name: Linux
+    url: /blog/linux/
+  - name: Docker
+    url: /blog/docker/
+  - name: Kubernetes
+    url: /blog/k8s/
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
