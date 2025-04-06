@@ -12,6 +12,6 @@ title: Home
 
 Explore categories:
 
-- 📂 [Linux](/blog/linux-basics/)
+- 📂 [Linux](/blog/linux/)
 - 🐳 [Docker](/blog/docker/)
 - ☸️ [Kubernetes](/blog/k8s/)

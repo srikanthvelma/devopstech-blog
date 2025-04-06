@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes-Basics"
+title: "k8s-Basics"
 layout: page
 date: 2025-04-04
 categories: [k8s]
