@@ -1,5 +1,5 @@
 ---
-title: "k8s-Basics"
+title: "k8s-Deployments"
 layout: post
 date: 2025-06-18
 categories: [k8s]
