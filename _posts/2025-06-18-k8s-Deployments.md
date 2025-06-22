@@ -159,6 +159,71 @@ We can update the deployment in different ways
 
 ## Example Deployment yaml
 ```yaml
-apiVersion: apps/v1
+apiVersion: apps/v1                               # Deployment API version
+kind: Deployment                                  # Resource type
+metadata:                                         # Metadata for the deployment
+  name: my-app-deploy                             # Deployment name
+  labels:
+    app: my-app                                   # Labels for the deployment
+  annotations:                                    # Annotations for the deployment
+    description: "This is my sample deployment" # Description annotation
+  namespace: my-namespace                        # Namespace for the deployment
+spec:                                            # Deployment specification
+  replicas: 3                                   # Number of replicas for the deployment
+  selector:                                      # Selector for the deployment
+    matchLabels:                                 # Match labels for the selector
+      app: my-app                               # Label to match
+  strategy:                                     # Deployment strategy
+    type: RollingUpdate                          # Strategy type
+    rollingUpdate:                               # Rolling update configuration
+      maxUnavailable: 1                          # Maximum unavailable pods during update
+      maxSurge: 1                                # Maximum surge pods during update
+  template:                                      # Pod template for the deployment
+    metadata:                                    # Metadata for the pod template
+      labels:                                    # Labels for the pod template
+        app: my-app                              # Label to match in the pod template
+    spec:                                        # Pod specification
+      restartPolicy: Always                      # Restart policy for the pods
+      imagePullSecrets:                          # Image pull secrets for the pod
+        - name: my-image-pull-secret             # Image pull secret name
+      containers:                                # List of containers in the pod template
+        - name: my-container                     # Container name
+          image: nginx:latest                    # Container image
+          ports:                                 # Ports exposed by the container
+            - containerPort: 80                  # Port number
+              protocol: TCP                       # Protocol used by the port
+          args:                                  # Arguments for the container
+            - --arg1=value1                      # Argument 1
+            - --arg2=value2                      # Argument 2
+          command:                               # Command to run in the container
+            - /bin/sh                            # Command to execute
+            - -c                                  # Command option
+            - echo "Hello, World!"               # Command to run
+          env:                                   # Environment variables for the container
+            - name: MY_ENV_VAR                   # Environment variable name
+              value: "my-value"                  # Environment variable value
+          envFrom:                              # Environment variables from a ConfigMap or Secret
+            - configMapRef:                      # Reference to a ConfigMap
+                name: my-config-map               # ConfigMap name
+            - secretRef:                         # Reference to a Secret
+                name: my-secret                  # Secret name
+          resources:                             # Resource requests and limits
+            requests:                            # Resource requests
+              memory: "64Mi"                     # Memory request
+              cpu: "250m"                        # CPU request
+            limits:                              # Resource limits
+              memory: "128Mi"                    # Memory limit
+              cpu: "500m"                        # CPU limit
+          volumeMounts:                          # Volume mounts for the container
+            - name: my-volume                    # Volume name
+              mountPath: /data                   # Mount path in the container
+            - name: my-secret-volume             # Secret volume name
+              mountPath: /etc/
+      volumes:                                  # Volumes for the pod template
+        - name: my-volume                        # Volume name
+          emptyDir: {}                            # Empty directory volume
+        - name: my-secret-volume                  # Secret volume name
+          secret:                                 # Secret volume configuration
+            secretName: my-secret                 # Secret name
 ```
 
