@@ -157,4 +157,8 @@ We can update the deployment in different ways
   kubectl rollout undo deployment/my-app
   ```
 
+## Example Deployment yaml
+```yaml
+apiVersion: apps/v1
+```
 
