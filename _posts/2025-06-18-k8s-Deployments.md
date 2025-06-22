@@ -158,33 +158,15 @@ We can update the deployment in different ways
     ```
 ## Example Deployment yaml with options
 ```yaml
-apiVersion: apps/v1                      # Deployment API version
-kind: Deployment                         # Resource type
-metadata:                                # Metadata for the deployment
-  name: my-app-deploy                    # Deployment name
-  labels:
-    app: my-app                          # Labels for the deployment
-  annotations:                           # Annotations for the deployment
-    description: "This is deployment"    # Description annotation
-  namespace: my-namespace                # Namespace for the deployment
-spec:                                    # Deployment specification
-  replicas: 3                            # Number of replicas for the deployment
-  selector:                              # Selector for the deployment
-    matchLabels:                         # Match labels for the selector
-      app: my-app                        # Label to match
-  strategy:                              # Deployment strategy
-    type: RollingUpdate                  # Strategy type
-    rollingUpdate:                       # Rolling update configuration
-      maxUnavailable: 1                  # Maximum unavailable pods during update
-      maxSurge: 1                        # Maximum surge pods during update
-  template:                              # Pod template for the deployment
-    metadata:                            # Metadata for the pod template
-      labels:                            # Labels for the pod template
-        app: my-app                      # Label to match in the pod template
-    spec:                                # Pod specification
-      restartPolicy: Always              # Restart policy for the pods
-      imagePullSecrets:                  # Image pull secrets for the pod
-        - name: my-image-pull-secret     # Image pull secret name
 
+apiVersion: v1                                 # Pod API version
+kind: Pod                                      # Resource type
+metadata:
+  name: my-pod                                 # Pod name
+  labels:                                      # Labels for the Pod
+    app: my-app
+  annotations:                                 # Annotations for the Pod
+    description: "This is my sample Pod"
+  namespace: my-namespace                      # Namespace for the Pod
 ```
 
