@@ -149,24 +149,12 @@ We can update the deployment in different ways
   ```
 
 - Update deployment (rolling update):
-    ```
-    kubectl set image deployment/my-app my-app-container=new-image:tag
-    ```
+  ```
+  kubectl set image deployment/my-app my-app-container=new-image:tag
+  ```
 - Rollback deployment:
-    ```
-    kubectl rollout undo deployment/my-app
-    ```
-## Example Deployment yaml with options
-```yaml
+  ```
+  kubectl rollout undo deployment/my-app
+  ```
 
-apiVersion: v1                                 # Pod API version
-kind: Pod                                      # Resource type
-metadata:
-  name: my-pod                                 # Pod name
-  labels:                                      # Labels for the Pod
-    app: my-app
-  annotations:                                 # Annotations for the Pod
-    description: "This is my sample Pod"
-  namespace: my-namespace                      # Namespace for the Pod
-```
 
