@@ -14,7 +14,7 @@ Lets us assume we have a web server in production , which needs to be run reliab
 
 While individual Pods run your application instances, ReplicaSets (or Replication Controllers) manage these Pods, ensuring the correct number are always running. A Deployment builds on these components by offering a higher-level abstraction. It not only handles rolling updates and rollbacks but also lets you pause and resume deployments as needed. It also handles the resource allocation like ,on which node our pod has to be loaded , any volume attachments.
 
-![k8s_deploy](images\k8s_deploy-1.jpg)
+![k8s_deploy](/assets/images/k8s/k8s_deploy-1.jpg)
 
 - A **Deployment** in Kubernetes manages a set of identical pods.
 - It is built on top of Pod and ReplicaSet.
@@ -64,7 +64,7 @@ When ever you create a first deployment k8s will trigger a rollout, creating a d
 There 2 deployment strategies in k8s 
 1. **Recreate**:
 In this , when we have multiple replicas, it will delete old replicaset and creates new replicaset in place.It straightforward. but with this startegy we will get downtime of our application.
-![k8s_deploy](images\k8s_deploy-2.jpg)
+![k8s_deploy](/assets/images/k8s/k8s_deploy-2.jpg)
 
 ### Example
 ```yaml
@@ -96,12 +96,12 @@ spec:
 
 2. **Rolling Update**
 In Rolling Update strategy new version is gradually replacing the old version without impacting our application.K8s incrementally creating new pods while scaling down the old pods.
-![k8s_deploy](images\k8s_deploy-3.jpg)
+![k8s_deploy](/assets/images/k8s/k8s_deploy-3.jpg)
 
 When a deployment is created with multiple replicas (for example, five), Kubernetes automatically generates a ReplicaSet that manages pod creation. During an upgrade, a new ReplicaSet is created with the updated configuration while the old ReplicaSet gradually scales down.
 
 If no strategy is specified, Kubernetes defaults to the rolling update strategy. The diagram below summarizes both "Recreate" and "Rolling Update" strategies
-![k8s_deploy](images\k8s_deploy-4.jpg)
+![k8s_deploy](/assets/images/k8s/k8s_deploy-4.jpg)
 
 ## Updating deployment
 
@@ -156,9 +156,8 @@ We can update the deployment in different ways
     ```
     kubectl rollout undo deployment/my-app
     ```
-## Deployment Example yaml with most used options
+## Example Deployment yaml with options
 ```yaml
-
 apiVersion: apps/v1                      # Deployment API version
 kind: Deployment                         # Resource type
 metadata:                                # Metadata for the deployment
@@ -186,44 +185,6 @@ spec:                                    # Deployment specification
       restartPolicy: Always              # Restart policy for the pods
       imagePullSecrets:                  # Image pull secrets for the pod
         - name: my-image-pull-secret     # Image pull secret name
-      containers:                        # List of containers in the pod template
-        - name: my-container             # Container name
-          image: nginx:latest            # Container image
-          ports:                         # Ports exposed by the container
-            - containerPort: 80          # Port number
-              protocol: TCP              # Protocol used by the port
-          args:                          # Arguments for the container
-            - --arg1=value1              # Argument 1
-            - --arg2=value2              # Argument 2
-          command:                       # Command to run in the container
-            - /bin/sh                    # Command to execute
-            - -c                         # Command option
-            - echo "Hello, World!"       # Command to run
-          env:                           # Environment variables for the container
-            - name: MY_ENV_VAR           # Environment variable name
-              value: "my-value"          # Environment variable value
-          envFrom:                       # Environment variables from a ConfigMap or Secret
-            - configMapRef:              # Reference to a ConfigMap
-                name: my-config-map      # ConfigMap name
-            - secretRef:                 # Reference to a Secret
-                name: my-secret          # Secret name
-          resources:                     # Resource requests and limits
-            requests:                    # Resource requests
-              memory: "64Mi"             # Memory request
-              cpu: "250m"                # CPU request
-            limits:                      # Resource limits
-              memory: "128Mi"            # Memory limit
-              cpu: "500m"                # CPU limit
-          volumeMounts:                  # Volume mounts for the container
-            - name: my-volume            # Volume name
-              mountPath: /data           # Mount path in the container
-            - name: my-secret-volume     # Secret volume name
-              mountPath: /etc/
-      volumes:                           # Volumes for the pod template
-        - name: my-volume                # Volume name
-          emptyDir: {}                   # Empty directory volume
-        - name: my-secret-volume         # Secret volume name
-          secret:                        # Secret volume configuration
-            secretName: my-secret        # Secret name 
+
 ```
 
