@@ -158,6 +158,7 @@ We can update the deployment in different ways
     ```
 ## Deployment Example yaml with most used options
 ```yaml
+
 apiVersion: apps/v1                               # Deployment API version
 kind: Deployment                                  # Resource type
 metadata:                                         # Metadata for the deployment
@@ -223,7 +224,6 @@ spec:                                            # Deployment specification
           emptyDir: {}                            # Empty directory volume
         - name: my-secret-volume                  # Secret volume name
           secret:                                 # Secret volume configuration
-            secretName: my-secret                 # Secret name
-      
+            secretName: my-secret                 # Secret name 
 ```
 
