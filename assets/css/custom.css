@@ -1,0 +1,23 @@
+/* Custom styles for k8s cheat sheet */
+.k8s-command {
+  color: white;
+  background-color: #153F79;
+  font-size: 1.05em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.k8s-desc {
+  color: #f2540b;
+  font-weight: 700;
+}
+.k8s-heading {
+  color: #2f196b;
+  font-size: 1.3em;
+  font-weight: bold;
+  background-color: #daf510;
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 6px;
+  margin-top: 0.5em;
+}
